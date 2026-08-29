@@ -1,0 +1,202 @@
+DBMS - TODAY'S CLASS NOTES
+
+1. DBMS, RELATIONAL MODEL AND RDBMS
+
+- DBMS = Database Management System.
+- A Relational Model stores data in the form of tables.
+- When DBMS follows the rules/principles proposed by E. F. Codd, it is called an RDBMS (Relational Database Management System).
+
+Examples of RDBMS:
+- MySQL
+- PostgreSQL
+- Oracle
+- SQL Server
+
+
+2. RULES OF E. F. CODD
+
+RULE 1 - ATOMICITY
+
+- Data stored in a table should be atomic, meaning each cell should contain a single value.
+- A column should not contain multiple separate values in one cell.
+
+Example:
+
+Correct:
+SID   SName   Photo
+S01   Rohit   photo1
+
+Incorrect:
+SID   SName
+S01   Rohit, Rahul, Raj
+
+Here, the SName column contains multiple values, so it is not atomic.
+
+Remember:
+Atomic = Single value
+
+
+3. STORING DATA IN MULTIPLE TABLES
+
+- In an RDBMS, we do not need to keep all information in one large table.
+- We can divide the data into multiple tables and establish relationships between them using keys.
+
+Example:
+
+STUDENT TABLE
+
+ID    Name      Age   CID
+S01   Rishav    20    C01
+S02   Rahul     21    C02
+S03   S...      20    C01
+
+- ID -> Primary Key (PK)
+- CID -> Foreign Key (FK)
+
+COURSE TABLE
+
+CID   CName    Fees
+C01   Java     500
+C02   Python   510
+C03   Test     500
+
+Here:
+Student.CID -> Foreign Key
+Course.CID  -> Primary Key
+
+The two tables are related through CID.
+
+Why use multiple tables?
+- Reduces data duplication
+- Keeps data organized
+- Makes data easier to manage
+- Helps establish relationships between data
+
+
+4. DATA TYPE AND CONSTRAINTS
+
+When creating a table, we define the properties of each column.
+
+There are mainly two steps:
+
+STEP 1 - ASSIGN A DATA TYPE
+
+Every column must have a data type.
+
+Examples:
+- INT -> Integer numbers
+- VARCHAR -> Variable-length text
+- CHAR -> Fixed-length text
+- DATE -> Date
+- DECIMAL -> Decimal numbers
+- BOOLEAN -> True/False
+
+Example:
+
+CREATE TABLE Student (
+    id INT,
+    name VARCHAR(50),
+    age INT
+);
+
+Here:
+- id -> INT
+- name -> VARCHAR(50)
+- age -> INT
+
+
+STEP 2 - APPLY CONSTRAINTS
+
+Constraints are used to put rules/restrictions on data.
+
+Common constraints:
+- PRIMARY KEY
+- FOREIGN KEY
+- NOT NULL
+- UNIQUE
+- CHECK
+- DEFAULT
+
+Example:
+
+CREATE TABLE Student (
+    id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT CHECK(age >= 18)
+);
+
+Here:
+- INT, VARCHAR -> Data Types
+- PRIMARY KEY, NOT NULL, CHECK -> Constraints
+
+IMPORTANT NOTE:
+- Data Type is mandatory.
+- Constraints are optional.
+
+
+5. METADATA
+
+Definition:
+Metadata = Data about data.
+
+It describes information about the stored data.
+
+Metadata can include:
+- Name
+- Location
+- Date
+- Time
+- Format
+- Size
+
+Example:
+
+For a photo:
+
+Name     : photo.jpg
+Location : C:\Photos
+Date     : 29-08-2026
+Time     : 10:30 PM
+Format   : JPG
+Size     : 2 MB
+
+These details describe the actual file, so they are called metadata.
+
+
+QUICK REVISION
+
+DBMS
+  |
+  v
+Relational Model
+  |
+  v
+Rules of E. F. Codd
+  |
+  v
+RDBMS
+
+RDBMS
+  |
+  v
+Tables
+  |
+  v
+Primary Key + Foreign Key
+  |
+  v
+Relationships between tables
+
+
+KEY POINTS TO REMEMBER
+
+Atomicity       -> One cell = One value
+Primary Key     -> Uniquely identifies each row
+Foreign Key     -> Creates relationship between tables
+Data Type       -> Defines what type of data a column can store
+Constraint      -> Defines rules/restrictions on data
+Metadata        -> Data about data
+
+
+NOTE:
+The handwritten point about "RDBMS can store everything including metadata" should not be memorized as Codd's Rule 2. The exact Codd rules should be studied separately.
