@@ -1,0 +1,228 @@
+DBMS & RDBMS — CLASS NOTES
+
+1.  WHAT IS DBMS? DBMS = Database Management System
+
+A DBMS is a software system used to store, manage, retrieve, update, and
+control data in a database.
+
+Examples: - MySQL - Oracle - PostgreSQL - Microsoft SQL Server - SQLite
+
+2.  WHAT DOES DBMS PROVIDE?
+
+1)  SECURITY DBMS protects database information from unauthorized
+    access.
+
+Example: A normal employee may be allowed to see employee details but
+not confidential salary information.
+
+2)  AUTHORIZATION Authorization means giving users permission to perform
+    specific operations.
+
+Example: - User A -> SELECT only - User B -> SELECT + UPDATE - Admin ->
+SELECT + INSERT + UPDATE + DELETE
+
+SQL commands related to permissions: GRANT REVOKE
+
+3)  QUERY LANGUAGE A DBMS provides a way to communicate with the
+    database using queries.
+
+The most commonly used language is: SQL = Structured Query Language
+
+Example: SELECT * FROM students;
+
+4)  DATA STORAGE / DATA MANAGEMENT DBMS manages how data is stored,
+    organized, and retrieved from storage.
+
+3.  RELATIONAL MODEL
+
+The Relational Model represents data using TABLES.
+
+A table contains: - Rows - Columns
+
+Example:
+
+Student_ID | Name | Age | Department 101 | Rahul | 21 | CSE 102 | Priya
+| 22 | IT 103 | Amit | 21 | CSE
+
+ROW: A row represents one complete record.
+
+COLUMN: A column represents an attribute or field.
+
+Easy memory: Row = Record Column = Attribute
+
+4.  WHAT IS RDBMS?
+
+RDBMS = Relational Database Management System
+
+RDBMS is a type of DBMS that uses the relational model to organize data
+mainly in tables.
+
+Examples: - MySQL - Oracle Database - PostgreSQL - Microsoft SQL Server
+
+IMPORTANT: Every RDBMS is a DBMS, but every DBMS is not necessarily an
+RDBMS.
+
+5.  DBMS VS RDBMS
+
+DBMS is the broader concept. RDBMS is a specific type of DBMS based on
+the relational model.
+
+DBMS can use different database models. RDBMS stores data in related
+tables using rows and columns.
+
+6.  ORACLE AND 1979
+
+Oracle is a popular RDBMS.
+
+Oracle’s first commercial product was introduced in 1979, making it one
+of the early commercial relational database systems.
+
+7.  IMPORTANT FEATURES OF RDBMS
+
+1)  TABLE-BASED DATA STORAGE Data is organized into tables containing
+    rows and columns.
+
+2)  SECURITY RDBMS provides mechanisms to protect database information.
+
+3)  AUTHORIZATION Different users can have different permissions.
+
+4)  SQL SUPPORT SQL is used to interact with the database.
+
+SQL can be used to: - Create databases/tables - Insert data - Retrieve
+data - Update data - Delete data - Filter data - Sort data - Join tables
+
+8.  CRUD OPERATIONS
+
+CRUD stands for:
+
+C = Create R = Read U = Update D = Delete
+
+Common SQL commands:
+
+Create/Insert: INSERT
+
+Read: SELECT
+
+Update: UPDATE
+
+Delete: DELETE
+
+Examples:
+
+INSERT INTO students VALUES (101, ‘Rahul’, 85);
+
+SELECT * FROM students;
+
+UPDATE students SET marks = 90 WHERE id = 101;
+
+DELETE FROM students WHERE id = 101;
+
+Easy memory: CRUD = Add -> See -> Change -> Remove
+
+9.  NORMALIZATION
+
+Normalization is the process of organizing data in a database to reduce
+redundancy and improve data integrity.
+
+Data redundancy means unnecessary repetition of the same data.
+
+Example:
+
+Student | Department | HOD Rahul | CSE | Mr. X Priya | CSE | Mr. X Amit
+| CSE | Mr. X
+
+Here, CSE and Mr. X are repeated.
+
+After normalization, we can separate the information into Student and
+Department tables.
+
+Main purpose: - Reduce data redundancy - Improve data organization -
+Improve data integrity
+
+10. RELATIONSHIPS BETWEEN TABLES
+
+RDBMS allows different tables to be related to each other.
+
+Example:
+
+STUDENT TABLE Student_ID | Name | Dept_ID 1 | Rahul | 10 2 | Priya | 20
+
+DEPARTMENT TABLE Dept_ID | Department 10 | CSE 20 | IT
+
+Dept_ID connects the two tables.
+
+Important concepts: - Primary Key - Foreign Key
+
+11. ADVANTAGES OF RDBMS
+
+12. Table-based structure
+
+13. SQL support
+
+14. Security
+
+15. Authorization
+
+16. Easy CRUD operations
+
+17. Relationships between tables
+
+18. Normalization
+
+19. Data integrity using constraints
+
+20. IMPORTANT CONSTRAINTS
+
+Common database constraints include: - PRIMARY KEY - FOREIGN KEY - NOT
+NULL - UNIQUE - CHECK
+
+13. COMPLETE FLOW OF TODAY’S CLASS
+
+DBMS | v Database Management | +–> Security +–> Authorization +–> Query
+Language / SQL +–> Data Storage / Management | v Relational Model | v
+Tables | +–> Rows = Records +–> Columns = Attributes | v RDBMS | +–> SQL
++–> CRUD +–> Security +–> Authorization +–> Relationships +–>
+Normalization +–> Constraints
+
+14. MOST IMPORTANT EXAM POINTS
+
+15. DBMS = Database Management System.
+
+16. DBMS is used to store, manage, retrieve, and manipulate data.
+
+17. DBMS provides security and authorization.
+
+18. SQL is used to interact with databases.
+
+19. Relational Model represents data in tables.
+
+20. A table contains rows and columns.
+
+21. Row = Record.
+
+22. Column = Attribute.
+
+23. RDBMS = Relational Database Management System.
+
+24. RDBMS is a type of DBMS.
+
+25. RDBMS organizes data into related tables.
+
+26. RDBMS supports SQL and CRUD operations.
+
+27. RDBMS supports relationships between tables.
+
+28. Normalization reduces data redundancy and improves data
+    organization.
+
+IMPORTANT CORRECTION FROM CLASS NOTES
+
+Do NOT memorize: “RDBMS = SQL + Security + Authorization + File Format +
+CRUD + Normalization”
+
+Correct definition: “RDBMS is a type of DBMS that manages data using the
+relational model, where data is organized into related tables.”
+
+SQL, security, authorization, CRUD, relationships, normalization, and
+constraints are features or related concepts used when working with an
+RDBMS.
