@@ -1,0 +1,132 @@
+SQL NOTES – DATA TYPES
+
+Date: 31/08/2026
+
+1. Data Type
+
+A data type is used to specify the type of data that can be stored in a particular column.
+
+Types discussed:
+CHAR
+VARCHAR
+DATE
+NUMBER
+Large Object
+CLOB
+BLOB
+2. CHAR
+
+CHAR is used to store characters such as:
+
+A–Z
+a–z
+0–9
+Special characters: $, @, !, &, /, etc.
+Alphanumeric characters
+
+Character values should be enclosed within single quotes (' ').
+
+Syntax:
+
+CHAR(size)
+
+Important Points:
+Default size of CHAR is 1.
+CHAR follows fixed-length memory allocation.
+If the defined size is larger than the stored data, the remaining memory is unused/wasted.
+
+Example:
+
+If CHAR(8) stores:
+
+'Raj'
+
+Memory allocation:
+
+1 2 3 4 5 6 7 8
+R a j _ _ _ _ _
+
+Used block = 3 characters
+Unused memory = remaining space
+
+3. VARCHAR
+
+VARCHAR is used to store characters such as:
+
+A–Z
+a–z
+0–9
+Special characters
+Alphanumeric characters
+
+Character values should be enclosed within single quotes (' ').
+
+Syntax:
+
+VARCHAR(size)
+
+Important Points:
+No fixed size is required for VARCHAR.
+VARCHAR follows variable-length memory allocation.
+Maximum number of characters that can be stored = 2000.
+It follows variable-length memory allocation.
+4. Difference Between CHAR and VARCHAR
+
+CHAR:
+
+Fixed-length memory allocation.
+Data is stored in a fixed-size space.
+
+VARCHAR:
+
+Variable-length memory allocation.
+Data is stored according to the required size.
+5. VARCHAR2
+
+VARCHAR2 is an updated version of VARCHAR.
+
+In VARCHAR2, we can store characters up to 4000.
+
+It follows variable-length memory allocation.
+
+6. DATE
+
+DATE data type is used to store dates in a particular format.
+
+Date values should be enclosed within single quotes (' ').
+
+Syntax:
+
+DATE
+
+MySQL Date Format:
+
+YYYY-MM-DD
+
+Example:
+
+2026-08-31
+
+Oracle Date Format:
+
+DD-MON-YYYY
+
+Examples:
+
+31-AUG-2003
+
+31-AUG-26
+
+Quick Revision
+
+CHAR → Fixed-length memory allocation
+
+VARCHAR → Variable-length memory allocation
+
+VARCHAR2 → Updated version of VARCHAR
+
+DATE → Stores date values
+
+MySQL Date Format → YYYY-MM-DD
+
+Oracle Date Format → DD-MON-YYYY
