@@ -1,0 +1,427 @@
+1. NUMBER Data Type
+
+NUMBER is used to store numeric values.
+
+Examples:
+
+10
+500
+-25
+95.50
+999.99
+Real-life example
+
+Suppose you have a Student table:
+
+Student	Age	Marks
+Rahul	22	85.50
+Amit	21	91.25
+Priya	22	78.00
+
+Age and Marks are numeric data, so a numeric datatype is required.
+
+2. NUMBER(Precision, Scale)
+
+This is the most important part of your notes.
+
+Example:
+
+NUMBER(5,2)
+
+Here:
+
+Precision = 5
+Scale = 2
+Precision
+
+Precision = total number of digits.
+
+Scale
+
+Scale = number of digits after the decimal point.
+
+Example:
+
+123.45
+
+There are:
+
+12345 → 5 digits total
+ .45  → 2 digits after decimal
+
+Therefore:
+
+NUMBER(5,2)
+3. NUMBER(3)
+NUMBER(3)
+
+Here the precision is 3.
+
+So you can think of values such as:
+
+999
+500
+100
+-99
+0
+
+But:
+
+1000
+
+would exceed 3 digits.
+
+Your notes show:
+
+NUMBER(3)
+
+1000 → Error
+
+The basic reason is that 1000 has 4 digits.
+
+4. NUMBER(3,2)
+
+Now:
+
+NUMBER(3,2)
+
+means:
+
+Precision = 3
+Scale = 2
+
+Your notes show:
+
+-0.99 ↔ +0.99
+
+The important thing to understand is that the value has 2 digits after the decimal point.
+
+Example:
+
+0.99
+12.34
+
+For this particular precision/scale combination, the exact allowable range depends on the database's implementation.
+
+5. NUMBER(4,2)
+NUMBER(4,2)
+
+means:
+
+Precision = 4
+Scale = 2
+
+Example:
+
+99.99
+12.50
+25.75
+
+For example:
+
+12.50
+
+has:
+
+12 → 2 digits before decimal
+50 → 2 digits after decimal
+
+Total = 4 digits.
+
+6. NUMBER(8,2)
+NUMBER(8,2)
+
+means:
+
+Precision = 8
+Scale = 2
+
+Example:
+
+999999.99
+
+Count the digits:
+
+999999 . 99
+   6       2
+
+Total:
+
+6 + 2 = 8 digits
+Real-life use: Salary
+
+Suppose an employee's salary is:
+
+₹450000.50
+
+A decimal numeric datatype is appropriate.
+
+In MySQL, you would normally write:
+
+salary DECIMAL(10,2)
+7. What is Rounding?
+
+Your notes also show examples like:
+
+95.50
+ ↓
+96
+
+and
+
+95.499
+ ↓
+95
+
+This is the idea of rounding a number.
+
+For example:
+
+95.6 → 96
+95.4 → 95
+
+The exact behavior depends on the datatype and database system.
+
+8. Large Object — LOB
+
+LOB = Large Object
+
+It is used to store large amounts of data.
+
+Two important types in your notes are:
+
+CLOB
+BLOB
+9. CLOB
+
+CLOB = Character Large Object
+
+It is used for large amounts of text/character data.
+
+Examples:
+
+Large articles
+Book content
+Long descriptions
+Large text documents
+Real-life example
+
+Imagine an online book website.
+
+BOOK
+
+Book_ID
+Title
+Author
+Content
+
+The Content field could contain thousands or millions of characters.
+
+So conceptually:
+
+Content → CLOB
+Easy memory trick:
+
+C = Character
+
+CLOB → Large Text
+10. BLOB
+
+BLOB = Binary Large Object
+
+It is used for binary data.
+
+Examples:
+
+Images
+Audio
+Video
+PDF/documents
+Other binary files
+
+Your notes mention:
+
+Image
+Audio
+Video
+Documents
+Example
+
+Suppose you have:
+
+STUDENT
+
+Student_ID
+Name
+Photo
+
+The student's photo is binary data.
+
+So conceptually:
+
+Photo → BLOB
+Easy memory trick:
+
+B = Binary
+
+BLOB → Binary/File data
+11. CLOB vs BLOB
+
+Remember this table:
+
+Data Type	Full Form	Used For
+CLOB	Character Large Object	Large Text
+BLOB	Binary Large Object	Images, Audio, Video, Files
+NUMBER	Numeric datatype	Numbers
+
+So:
+
+Long text
+   ↓
+ CLOB
+
+Image
+   ↓
+ BLOB
+
+Audio
+   ↓
+ BLOB
+
+Video
+   ↓
+ BLOB
+
+Number
+   ↓
+ NUMBER / DECIMAL
+12. Real-Life Example
+
+Imagine a Student Management System:
+
+STUDENT
+-----------------------------
+Student_ID
+Name
+Age
+Marks
+Description
+Photo
+
+Possible datatypes:
+
+Student_ID  → NUMBER
+Name        → VARCHAR
+Age         → NUMBER
+Marks       → DECIMAL(5,2)
+Description → CLOB
+Photo       → BLOB
+
+Now the whole concept becomes easy:
+
+Age
+↓
+Number
+
+Marks
+↓
+Decimal Number
+
+Long Description
+↓
+CLOB
+
+Photo
+↓
+BLOB
+13. NUMBER(3,-1) — Negative Scale
+
+This part of your notes is more advanced.
+
+NUMBER(3,-1)
+
+A negative scale means rounding can happen on the integer side, rather than after the decimal.
+
+For example, conceptually:
+
+5  → 10
+94 → 90
+95 → 100
+
+So instead of rounding to decimal places, you're rounding toward the nearest tens.
+
+Your notes show examples such as:
+
+5  → 10
+95 → 100
+94 → 90
+
+Don't worry too much about this yet. It's not the main thing you need to master as a beginner.
+
+14. Important MySQL Correction ⚠️
+
+Since you are learning MySQL, don't blindly memorize:
+
+NUMBER(5,2)
+
+as MySQL syntax.
+
+In MySQL, you normally use:
+
+DECIMAL(5,2)
+
+For example:
+
+CREATE TABLE employee (
+    salary DECIMAL(10,2)
+);
+
+And for large text, MySQL commonly uses:
+
+TEXT
+MEDIUMTEXT
+LONGTEXT
+
+For binary data:
+
+BLOB
+MEDIUMBLOB
+LONGBLOB
+
+So your teacher's concept is useful, but when writing actual MySQL code, use the MySQL datatypes.
+
+⭐ Remember the entire class in 30 seconds
+NUMBER
+↓
+Stores numbers
+
+Precision
+↓
+Total digits
+
+Scale
+↓
+Digits after decimal
+
+
+CLOB
+↓
+Character Large Object
+↓
+Large TEXT
+
+
+BLOB
+↓
+Binary Large Object
+↓
+Image / Audio / Video / Files
+The one formula you absolutely need to remember:
+NUMBER(Precision, Scale)
+
+Precision = Total digits
+Scale     = Digits after decimal
+
+For MySQL:
+
+NUMBER → DECIMAL
